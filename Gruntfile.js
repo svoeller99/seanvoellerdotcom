@@ -15,6 +15,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.loadNpmTasks('grunt-gcloud');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -378,6 +380,19 @@ module.exports = function (grunt) {
       ]
     },
 
+    gcloud: {
+      options: {
+        projectId: 'sharp-gecko-555',
+        bucket: 'www.seanvoeller.com',
+        keyFilename: '.gcloud.json'
+      },
+      files: [{
+        src: [
+          'dist/**/*'
+        ]
+      }]
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -431,6 +446,11 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('cloud', [
+    'build',
+    'gcloud'
   ]);
 
   grunt.registerTask('default', [
