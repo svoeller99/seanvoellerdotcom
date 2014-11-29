@@ -384,7 +384,8 @@ module.exports = function (grunt) {
       options: {
         projectId: 'sharp-gecko-555',
         bucket: 'www.seanvoeller.com',
-        keyFilename: '.gcloud.json'
+        keyFilename: '.gcloud.json',
+        makePublic: true
       },
       cloud : {
         files: [{
@@ -453,8 +454,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('cloud', [
-    //'build',
     'gcloud'
+  ]);
+
+  grunt.registerTask('publish', [
+    'build',
+    'cloud'
   ]);
 
   grunt.registerTask('default', [
