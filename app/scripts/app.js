@@ -32,3 +32,5 @@ angular
         redirectTo: '/'
       });
   });
+
+document.domain = 'seanvoeller.com';

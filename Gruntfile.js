@@ -386,11 +386,15 @@ module.exports = function (grunt) {
         bucket: 'www.seanvoeller.com',
         keyFilename: '.gcloud.json'
       },
-      files: [{
-        src: [
-          'dist/**/*'
-        ]
-      }]
+      cloud : {
+        files: [{
+          cwd: '<%= yeoman.dist %>',
+          dest: '',
+          src: [
+            '**/*'
+          ]
+        }]
+      }
     },
 
     // Test settings
@@ -449,7 +453,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('cloud', [
-    'build',
+    //'build',
     'gcloud'
   ]);
 
