@@ -9,6 +9,6 @@
  */
 angular.module('seanvoellerdotcomApp')
   .controller('ContactCtrl', function ($scope) {
-    $scope.email = 'sean.voeller@gmail.com';
+    $scope.email = 'sean dot voeller at gmail dot com';
   });
  
